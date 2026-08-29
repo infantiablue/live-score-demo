@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Standalone API-Football live scoreboard demo">
+  <title>Live football scores</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <p class="eyebrow">API-Football live demo</p>
+      <h1>Live football scores</h1>
+      <p>This standalone page polls <code>fixtures?live=all</code> once per minute, backs off failures, pauses while hidden, and labels old data.</p>
+    </header>
+
+    <section class="toolbar" aria-label="Scoreboard status">
+      <div>
+        <strong id="feed-state" data-state="loading">Loading live fixtures…</strong>
+        <span id="feed-age">Not updated yet</span>
+      </div>
+      <button id="refresh" type="button">Refresh now</button>
+    </section>
+
+    <p id="empty-state" class="empty" hidden></p>
+    <section id="scores" class="score-grid" aria-live="polite"></section>
+
+    <footer>
+      <span>Data: <a href="https://www.api-football.com/documentation-v3">API-Football v3</a></span>
+      <span>API key stays on the server.</span>
+    </footer>
+  </main>
+</body>
+</html>
